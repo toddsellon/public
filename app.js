@@ -11,8 +11,10 @@ var map,
 	};
 
 // Wait for PhoneGap to load
-document.addEventListener('deviceready', onDeviceReady);
-window.addEventListener('load', onDeviceReady);
+if( window.cordova )
+	document.addEventListener('deviceready', onDeviceReady);
+else
+	window.addEventListener('load', onDeviceReady);
 
 // PhoneGap is ready
 function onDeviceReady() {
