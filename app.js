@@ -3,10 +3,7 @@ var map,
 
 // options necessary for Google Maps
 	options = {
-			center: {
-				lat: 0,
-				lng: 0
-			},
+			center: { },
 			zoom: 8
 	};
 
@@ -47,20 +44,22 @@ function handleUserPosition( position ) {
 // Move the map appropriately for the acceleration
 function handleAcceleration( acceleration ) {
 	// Update the center based on acceleration
-	options.center.lng += acceleration.x;
+	/*options.center.lng += acceleration.x;
 	options.center.lat += acceleration.y;
 	
 	// Update the Google Map
-	map.setCenter( options.center );
+	map.setCenter( options.center );*/
+	
+	console.log( JSON.stringify( acceleration ) );
 }
 
 // Failed to get the user's position
 function geolocationError( error ) {
 	// console.log is one of the few ways to debug mobile devices (seriously)
-	console.log( 'Geolocation failed: ' + error.message );
+	console.log( 'Geolocation failed: ' + JSON.stringify( error ) );
 }
 
 // Failed to get device acceleration
 function accelerationError( error ) {
-	console.log( 'Accelerometer failed: ' + error.message );
+	console.log( 'Accelerometer failed: ' + JSON.stringify( error ) );
 }
