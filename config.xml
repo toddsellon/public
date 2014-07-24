@@ -18,6 +18,6 @@
     </author>
 	
 	<!-- Include the 'Capture' plugin -->
-	<gap:plugin name="org.apache.cordova.Capture" />
+	<gap:plugin name="org.apache.cordova.media-capture" />
 
 </widget>
