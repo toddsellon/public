@@ -7,7 +7,7 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Map App</name>
+    <name>Attention Sponge</name>
 
     <description>
         An example for Phonegap build. 
@@ -16,6 +16,9 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Todd Sellon
     </author>
+	
+	<!-- Include the 'Geolocation' plugin -->
+	<gap:plugin name="org.apache.cordova.geolocation" />
 	
 	<!-- Include the 'Capture' plugin -->
 	<gap:plugin name="org.apache.cordova.media-capture" />
