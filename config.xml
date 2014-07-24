@@ -16,5 +16,8 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Todd Sellon
     </author>
+	
+	<!-- Include the 'Capture' plugin -->
+	<gap:plugin name="org.apache.cordova.Capture" />
 
 </widget>
