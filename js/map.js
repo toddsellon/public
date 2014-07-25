@@ -43,14 +43,23 @@ function handleUserPosition( position ) {
 
 // Move the map appropriately for the acceleration
 function handleAcceleration( acceleration ) {
-	// Update the center based on acceleration
-	/*options.center.lng += acceleration.x;
-	options.center.lat += acceleration.y;
+	
+	// Determine if tilted horizontally
+	if( acceleration.x > 0 ) {
+		options.center.lng++;
+	} else if( acceleration.x < 0 ) {
+		options.center.lng--;
+	}
+	
+	// Determine if tilted vertically
+	if( acceleration.y > 0 ) {
+		options.center.lat++;
+	} else if( acceleration.y < 0 ) {
+		options.center.lat--;
+	}
 	
 	// Update the Google Map
-	map.setCenter( options.center );*/
-	
-	console.log( JSON.stringify( acceleration ) );
+	map.setCenter( options.center );
 }
 
 // Failed to get the user's position

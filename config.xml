@@ -22,5 +22,8 @@
 	
 	<!-- Include the 'Capture' plugin -->
 	<gap:plugin name="org.apache.cordova.media-capture" />
+	
+	<!-- Include the 'Accelerometer' plugin -->
+	<gap:plugin name="org.apache.cordova.device-motion" />
 
 </widget>
