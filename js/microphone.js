@@ -19,7 +19,7 @@ function captureSuccess( files ) {
 	for( i = 0; i < files.length; i++ ) {
 		file = files[i];
 		audio = document.createElement('audio');
-		audio.src = file.fullPath + '/' + file.name;
+		audio.src = file.fullPath;
 		audio.controls = true;
 		document.body.appendChild( audio );
 	}

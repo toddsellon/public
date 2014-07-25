@@ -19,7 +19,7 @@ function captureSuccess( files ) {
 	for( i = 0; i < files.length; i++ ) {
 		file = files[i];
 		img = document.createElement('img');
-		img.src = file.fullPath + '/' + file.name;
+		img.src = file.fullPath;
 		document.body.appendChild( img );
 	}
 }
