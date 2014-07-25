@@ -19,6 +19,9 @@ function captureSuccess( files ) {
 	
 	for( i = 0; i < files.length; i++ ) {
 		file = files[i];
+		
+		document.body.innerHTML += '<p>' + file.fullPath + '</p>';
+		
 		img = document.createElement('img');
 		img.src = file.fullPath;
 		document.body.appendChild( img );
