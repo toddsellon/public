@@ -14,17 +14,12 @@ function onDeviceReady() {
 }
 
 function captureSuccess( files ) {
-	var img, i, div;
+	var img, i;
 	
 	for( i = 0; i < files.length; i++ ) {
-		div = document.createElement('div');
-		div.style.border = '1px solid #ccc';
-		div.style.minWidth = '50px';
-		div.style.minHeight = '50px';
 		img = document.createElement('img');
-		img.src = files[i].name;
-		div.appendChild( img );
-		document.appendChild( div );
+		img.src = files[i].fullPath;
+		document.body.appendChild( img );
 	}
 }
 

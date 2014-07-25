@@ -18,8 +18,9 @@ function captureSuccess( files ) {
 	
 	for( i = 0; i < files.length; i++ ) {
 		audio = document.createElement('audio');
-		audio.src = files[i].name;
-		document.appendChild( audio );
+		audio.src = files[i].fullPath;
+		audio.controls = true;
+		document.body.appendChild( audio );
 	}
 }
 
