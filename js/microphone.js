@@ -18,10 +18,16 @@ function captureSuccess( files ) {
 	
 	for( i = 0; i < files.length; i++ ) {
 		file = files[i];
+		
+		document.body.innerHTML += '<p>' + file.fullPath + '</p>';
+		
+		/*
+		// Android: amr, iOS: wav
 		audio = document.createElement('audio');
 		audio.src = file.fullPath;
 		audio.controls = true;
 		document.body.appendChild( audio );
+		*/
 	}
 }
 
