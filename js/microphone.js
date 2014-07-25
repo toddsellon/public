@@ -8,7 +8,8 @@ else
 // PhoneGap is ready
 function onDeviceReady() {
 	
-	document.querySelector('button').addEventListener( 'click', function() {
+	document.querySelector('button').addEventListener( 'click', function(e) {
+		e.preventDefault();
 		navigator.device.capture.captureAudio( captureSuccess, captureError );
 	} );
 }
