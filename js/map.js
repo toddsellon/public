@@ -9,7 +9,7 @@ var map,
 	
 	// Original acceleration
 	origin = null,
-	accelerationSensitivity = 1;
+	accelerationSensitivity = 5;
 
 // Wait for PhoneGap to load
 if( window.cordova )
