@@ -8,7 +8,8 @@ var map,
 	},
 	
 	// Original acceleration
-	origin = null;
+	origin = null,
+	accelerationSensitivity = 1;
 
 // Wait for PhoneGap to load
 if( window.cordova )
@@ -50,16 +51,16 @@ function handleAcceleration( acceleration ) {
 	origin = origin || acceleration;
 	
 	// Determine if tilted horizontally
-	if( acceleration.x > origin.x ) {
+	if( acceleration.x > origin.x + accelerationSensitivity ) {
 		options.center.lng++;
-	} else if( acceleration.x < origin.x ) {
+	} else if( acceleration.x < origin.x - accelerationSensitivity ) {
 		options.center.lng--;
 	}
 	
 	// Determine if tilted vertically
-	if( acceleration.y > origin.y ) {
+	if( acceleration.y > origin.y + accelerationSensitivity ) {
 		options.center.lat++;
-	} else if( acceleration.y < origin.y ) {
+	} else if( acceleration.y < origin.y - accelerationSensitivity ) {
 		options.center.lat--;
 	}
 	
