@@ -1,11 +1,14 @@
 // map will be a reference to the Google Map
 var map,
 
-// options necessary for Google Maps
+	// options necessary for Google Maps
 	options = {
 			center: { },
 			zoom: 8
-	};
+	},
+	
+	// Original acceleration
+	origin = null;
 
 // Wait for PhoneGap to load
 if( window.cordova )
@@ -44,17 +47,19 @@ function handleUserPosition( position ) {
 // Move the map appropriately for the acceleration
 function handleAcceleration( acceleration ) {
 	
+	origin = origin || acceleration;
+	
 	// Determine if tilted horizontally
-	if( acceleration.x > 0 ) {
+	if( acceleration.x > origin.x ) {
 		options.center.lng++;
-	} else if( acceleration.x < 0 ) {
+	} else if( acceleration.x < origin.x ) {
 		options.center.lng--;
 	}
 	
 	// Determine if tilted vertically
-	if( acceleration.y > 0 ) {
+	if( acceleration.y > origin.y ) {
 		options.center.lat++;
-	} else if( acceleration.y < 0 ) {
+	} else if( acceleration.y < origin.y ) {
 		options.center.lat--;
 	}
 	
