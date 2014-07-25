@@ -14,11 +14,12 @@ function onDeviceReady() {
 }
 
 function captureSuccess( files ) {
-	var audio, i;
+	var audio, i, file;
 	
 	for( i = 0; i < files.length; i++ ) {
+		file = files[i];
 		audio = document.createElement('audio');
-		audio.src = files[i].fullPath;
+		audio.src = file.fullPath + '/' + file.name;
 		audio.controls = true;
 		document.body.appendChild( audio );
 	}
