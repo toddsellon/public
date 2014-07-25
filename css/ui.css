@@ -16,28 +16,6 @@ body > h1, body > h2, body > h3, body > h4, body > h5, body > h6 {
 	background-color: rgb(179,220,237);
 }
 
-menu {
-	margin: 0;
-	padding: 0;
-	display: none;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background-color: #ccc;
-}
-
-	menu command {
-		margin: 0;
-		padding: 2px 5px;
-		display: inline-block;
-		border-right: 2px outset #000;
-	}
-	
-	menu command:active {
-		background-color: #aaa;
-	}
-
 .ui-button, .ui-nav-item {
 	color: #fff;
 	font-weight: bold;
