@@ -79,3 +79,8 @@ menu {
 a.ui-button, a.ui-nav-item {
 	text-decoration: none;
 }
+
+/* Page specific rules */
+body.camera img {
+	max-width: 100%;
+}

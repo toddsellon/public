@@ -37,17 +37,15 @@ function onDeviceReady() {
 }
 
 function captureSuccess( files ) {
-	var img, i, file;
+	var i, file;
 	
 	for( i = 0; i < files.length; i++ ) {
 		file = files[i];
 		
+		createImage( file.fullPath );
+		
 		images.push( file.fullPath );
 		updateStorage();
-		
-		img = document.createElement('img');
-		img.src = file.fullPath;
-		document.body.appendChild( img );
 	}
 }
 
@@ -55,12 +53,17 @@ function captureError( event ) {
 	alert( "It didn't work" );
 }
 
+function createImage( src ) {
+	var img;
+	img = document.createElement('img');
+	img.src = src;
+	document.body.appendChild( img );
+}
+
 function showImages( ) {
 	var i;
 	for( i = 0; i < images.length; i++ ) {
-		img = document.createElement('img');
-		img.src = images[i];
-		document.body.appendChild( img );
+		createImage( images[i] );
 	}
 }
 
