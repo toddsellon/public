@@ -26,11 +26,6 @@ function onDeviceReady() {
 
 function handleUserPosition( position ) {
 
-	// Options needed for accelerometer
-	var acceleratorOptions = {
-		frequency: 3000
-	};
-
 	// Update the Map options with the position returned by Geolocation
 	options.center.lat = position.coords.latitude;
 	options.center.lng = position.coords.longitude;
@@ -38,30 +33,30 @@ function handleUserPosition( position ) {
 	// Instantiate the Google Map over the element with id 'map'
 	map = new google.maps.Map( document.getElementById("map"), options);
 	
-	// If the accelerometer is present..
-	if( navigator.accelerometer ) {
-		// ..start watching the accelerometer for changes
-		navigator.accelerometer.watchAcceleration( handleAcceleration, accelerationError, acceleratorOptions );
-	}
+	// Start watching the accelerometer for changes
+	navigator.accelerometer.watchAcceleration( handleAcceleration,
+												accelerationError,
+												{ frequency: 3000 } );
 }
 
 // Move the map appropriately for the acceleration
 function handleAcceleration( acceleration ) {
 	
+	// Save the original coordinates if they are not already saved
 	origin = origin || acceleration;
 	
 	// Determine if tilted horizontally
 	if( acceleration.x > origin.x + accelerationSensitivity ) {
-		options.center.lng++;
-	} else if( acceleration.x < origin.x - accelerationSensitivity ) {
 		options.center.lng--;
+	} else if( acceleration.x < origin.x - accelerationSensitivity ) {
+		options.center.lng++;
 	}
 	
 	// Determine if tilted vertically
 	if( acceleration.y > origin.y + accelerationSensitivity ) {
-		options.center.lat++;
-	} else if( acceleration.y < origin.y - accelerationSensitivity ) {
 		options.center.lat--;
+	} else if( acceleration.y < origin.y - accelerationSensitivity ) {
+		options.center.lat++;
 	}
 	
 	// Update the Google Map

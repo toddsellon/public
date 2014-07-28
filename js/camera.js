@@ -21,8 +21,11 @@ else
 
 // PhoneGap is ready
 function onDeviceReady() {
-
+	
 	var i;
+	for( i = 0; i < images.length; i++ ) {
+		createImage( images[i] );
+	}
 	
 	// Listen for 'Look' button being pressed
 	document.querySelector('button').addEventListener( 'click', function(e) {
@@ -44,9 +47,12 @@ function captureSuccess( files ) {
 		
 		createImage( file.fullPath );
 		
+		// Add the new file to the array of files
 		images.push( file.fullPath );
-		updateStorage();
 	}
+	
+	// Update localStorage to include the new image(s)
+		localStorage.images = JSON.stringify( images );
 }
 
 function captureError( event ) {
@@ -54,19 +60,7 @@ function captureError( event ) {
 }
 
 function createImage( src ) {
-	var img;
-	img = document.createElement('img');
+	var img = document.createElement('img');
 	img.src = src;
 	document.body.appendChild( img );
-}
-
-function showImages( ) {
-	var i;
-	for( i = 0; i < images.length; i++ ) {
-		createImage( images[i] );
-	}
-}
-
-function updateStorage( ) {
-	localStorage.images = JSON.stringify( images );
 }
